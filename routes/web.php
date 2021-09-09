@@ -17,6 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/playlist', function () {
+    return view('playlist');
+});
+
+Route::get('/tribe', function () {
+    return view('tribe');
+});
+
+
+Route::get('/edit', function () {
+    return view('edit');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
