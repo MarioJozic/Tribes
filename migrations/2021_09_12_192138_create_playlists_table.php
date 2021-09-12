@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTribesTable extends Migration
+class CreatePlaylistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateTribesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tribes', function (Blueprint $table) {
+        Schema::create('playlists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('genre');
-            $table->string('filepath')->nullable();
             $table->timestamps();
+            $table->string('description');
 
             $table->index('user_id');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,6 +30,6 @@ class CreateTribesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tribes');
+        Schema::dropIfExists('playlists');
     }
 }
