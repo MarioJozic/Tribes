@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('/tribe/{user}', [App\Http\Controllers\TribesController::class, 'index'])->name('tribe.index');
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::get('/playlist', function () {
@@ -30,6 +32,15 @@ Route::get('/edit', function () {
     return view('edit');
 });
 
+
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/tribe/{user}', [App\Http\Controllers\TribesController::class, 'index'])->name('tribe.index');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});

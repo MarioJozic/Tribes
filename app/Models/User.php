@@ -23,6 +23,8 @@ class User extends Authenticatable
         'Username',
         'email',
         'password',
+        'is_admin',
+
     ];
 
     /**
@@ -43,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tribe(){
+        return $this->hasOne(tribe::class);
+    }
 }
