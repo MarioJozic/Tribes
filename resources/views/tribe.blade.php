@@ -1,3 +1,6 @@
+<?php
+$results = DB::select('select * from users where id = ?', [1]);
+?>
 
 @extends('layouts.app')
 
@@ -61,7 +64,7 @@
                 
 
                                     <div class="col-sm-3 mr-7">
-                                       {{$user->username}}
+                                    {{ Auth::user()->tribe->title }}
                                     </div>
                    
 

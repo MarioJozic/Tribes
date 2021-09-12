@@ -46,7 +46,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tribe(){
-        return $this->hasOne(tribe::class);
+    public function playlists(){
+        return $this->hasMany(Playlist::class);
+
+    }
+
+    public function songs(){
+        return $this->hasMany(Song::class);
+
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 }
