@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/profiles/index');
 });
 
 Route::get('/home', function () {
@@ -37,9 +37,14 @@ Route::get('/edit', function () {
     return view('edit');
 });
 
+Route::get('posts/create', function () {
+    return view('/posts/create');
+});
+
 //Route::get('/profile/{user}', [App\Http\Controllers\PostsController::class, 'index'])->name('profile.show');
 
 Route::get('/p/create', 'App\Http\Controllers\PostsController@create');
+Route::post('/p', 'App\Http\Controllers\PostsController@store');
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 
 
