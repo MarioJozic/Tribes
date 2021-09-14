@@ -16,9 +16,9 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->string('genre');
-            $table->string('filepath')->nullable();
+            $table->string('Username')->unique();
+            $table->string('email')->unique();
+            $table->string('Image')->nullable();
             $table->timestamps();
 
             $table->index('user_id');
