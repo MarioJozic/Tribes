@@ -2,12 +2,12 @@
 @extends('layouts.app')
 
 <div class="container">
-    <form action="/p" enctype="multipart/form-data" method="post">
+    <form action="/{{$post_id}}/addplaylist" enctype="multipart/form-data" method="post">
     @csrf
     <div class="row">
         <div class="col-8 offset-2">
             <div class="form-group row">
-                <h1> Add new tribe!</h1>     
+                <h1> Add new playlist!</h1>     
             </div>
         </div>
     </div>
@@ -33,13 +33,13 @@
         <div class ="row">
             <div class="col-8 offset-2">
                 <div class="form-group row">
-                    <label for="Genre" class="col-md-4 col-form-label "><h3>{{ __('Genre') }}</h3></label>
-                        <input id="Genre" 
-                        type="text" class="form-control @error('Genre') is-invalid @enderror" 
-                        name="Genre" value="{{ old('Genre') }}"  
-                        autocomplete="Genre" autofocus>
+                    <label for="Description" class="col-md-4 col-form-label "><h3>{{ __('Description') }}</h3></label>
+                        <input id="Description" 
+                        type="text" class="form-control @error('Description') is-invalid @enderror" 
+                        name="Description" value="{{ old('Description') }}"  
+                        autocomplete="Description" autofocus>
 
-                        @error('Genre')
+                        @error('Description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -50,21 +50,6 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-8 offset-2">
-                <div class="form-group row">
-                    <label for="Image" class="col-md-4 col-form-label "><h3>{{ __('Image') }}</h3></label>
-
-                    <input type="file", class="form-control-file" id="Image" name="Image">
-
-                    @error('Image')
-                        
-                            <strong>{{ $message }}</strong>
-                        
-                    @enderror
-                </div>
-            </div>
-        </div>
         
         <div class="row pt-4">
             <div class="col-8 offset-2">

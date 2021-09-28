@@ -11,61 +11,8 @@
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header float-left col-12">{{ $post->Title }} {{$post->user->Username}}
-                    <button type="button" class="btn btn-success rounded-circle float-right">
-                            <a href="/posts/create"> + </a>
-                    </button>
+                    <a href="/{{$post->id}}/createPlaylist"><button type="button" class="btn btn-success rounded-circle float-right">+</button> </a>
                 </div>
-                    
-                
-                
-                
-
-               
-                    <li class="list-group-item"> 
-                  
-                        <ul class="list-group list-group-flush">
-                             <div class="card-body">
-                                 <div class="row">
-                
-
-                                    <div class="col-sm-3 mr-7 pb-4">
-                                    @foreach(Auth::user()->posts as $post)
-                                        <img src="/storage/{{$post->Image}}" width=100 height=100;>
-
-                                     @endforeach
-                                    </div>
-                   
-
-
-                                    <div class="col-sm-3 mr-7">
-                                    @foreach(Auth::user()->posts as $post)
-                                    <a href="/p/{{$post->id}}">
-                                    {{$post->Title}}</a>  
-
-                                     @endforeach
-                                    </div>
-                    
-
-                                    <div class="col-sm-3">
-                                    @foreach(Auth::user()->posts as $post)
-                                        {{$post->Genre}}
-                                     @endforeach
-
-                                     
-                                    </div>
-                                    <div class="col-sm-3">
-
-                                    @foreach(Auth::user()->posts as $post)
-                                       {{ $post->user->Username}}
-
-                                     @endforeach
-                                    </div>
-                    
-                                </div>
-                            </div>
-                        </ul>
-                    </li>        
-
 
                 </div>
             </div>

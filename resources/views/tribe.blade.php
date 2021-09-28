@@ -18,7 +18,6 @@ $results = DB::select('select * from users where id = ?', [1]);
                     
                 
                 
-                
 
                 <div class="card-body">
                     <li class="list-group-item"> 

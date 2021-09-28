@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('/profiles/index');
+    return view('home');
 });
 
 Route::get('/home', function () {
@@ -41,15 +41,22 @@ Route::get('posts/create', function () {
     return view('/posts/create');
 });
 
-//Route::get('/profile/{user}', [App\Http\Controllers\PostsController::class, 'index'])->name('profile.show');
-Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show');
-
 Route::get('/p/create', 'App\Http\Controllers\PostsController@create');
 Route::post('/p', 'App\Http\Controllers\PostsController@store');
+Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show');
+
+Route::get('{post_id}/createPlaylist', 'App\Http\Controllers\PlaylistController@create');
+Route::post('{post_id}/addplaylist', 'App\Http\Controllers\PlaylistController@store');
+Route::get('/{post_id}/playlist', 'App\Http\Controllers\PlaylistController@show');
+
+Route::get('addsong', 'App\Http\Controllers\SongsController@create');
+Route::post('/playlist/songs', 'App\Http\Controllers\SongsController@store');
+Route::get('{playlist}/songs', 'App\Http\Controllers\SongsController@show');
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit')->name('profile.edit');
-Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
+Route::patch('/profile/{user}', 'App\Http\Controllers\ProfilesController@update')->name('profile.update');
+
 
 
 
